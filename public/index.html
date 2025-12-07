@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhylers Mobil - Dealer Mobil Impian</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 text-white font-sans overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-purple-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo Updated -->
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <!-- Icon Logo Container - Border Abu-abu, Icon Ungu -->
+          <div
+            class="w-10 h-10 bg-gradient-to-tr from-purple-600 to-purple-800 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(147,51,234,0.5)] border border-gray-500/50">
+            <i class="fas fa-car text-purple-300 text-lg"></i>
+          </div>
+          <!-- Brand Name -->
+          <span class="font-bold text-xl tracking-wider text-purple-500">DHYLERS <span
+              class="text-white">MOBIL</span></span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#"
+              class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Model</a>
+            <a href="#"
+              class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Dealers</a>
+            <a href="#"
+              class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Accessories</a>
+            <a href="#"
+              class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Service
+              Center</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button class="text-gray-300 hover:text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Slideshow -->
+  <div class="relative h-screen flex items-center justify-center overflow-hidden">
+
+    <!-- Slideshow Background Container -->
+    <div id="slideshow-container" class="absolute inset-0 z-0">
+      <!-- Images will be injected here by JS -->
+    </div>
+
+    <!-- Overlay Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-black/60 z-10"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-xl">
+        Temukan Perjalanan <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">Terbaik Anda</span>
+      </h1>
+
+      <p class="text-gray-200 text-lg md:text-xl mb-12 font-light drop-shadow-md">
+        Koleksi lengkap Toyota, Daihatsu, Honda, dan mobil impian lainnya.
+      </p>
+
+      <!-- CTA Section -->
+      <div
+        class="bg-gray-800/60 backdrop-blur-lg border border-purple-500/30 p-8 rounded-2xl shadow-2xl inline-block max-w-2xl w-full transform hover:scale-105 transition duration-300">
+        <p class="text-purple-200 font-medium mb-4 text-lg">
+          Masih bingung untuk memilih mobil impian anda?<br>
+          Ayo tanyakan terlebih dahulu ke assisten kami
+        </p>
+        <button onclick="openChat()"
+          class="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-purple-600 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 hover:bg-purple-700 hover:shadow-[0_0_20px_rgba(147,51,234,0.6)]">
+          <i class="fas fa-comments mr-2 group-hover:animate-bounce"></i>
+          Tanya Asisten Sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Floating Widget -->
+  <div id="chatbot" class="hidden fixed bottom-6 right-6 z-50 w-full max-w-sm chat-animate">
+    <div class="bg-gray-800 border border-purple-500/50 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[500px]">
+
+      <!-- Chat Header -->
+      <div class="bg-purple-700 p-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-purple-300">
+            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Felix" alt="Bot Avatar" class="w-8 h-8">
+          </div>
+          <div>
+            <h3 class="font-bold text-white">Dhylers Assistant</h3>
+            <span class="text-xs text-purple-200 flex items-center gap-1">
+              <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Online
+            </span>
+          </div>
+        </div>
+        <button onclick="closeChat()" class="text-purple-200 hover:text-white transition">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div id="chat-messages" class="flex-1 p-4 overflow-y-auto chat-scroll bg-gray-900 flex flex-col gap-3">
+        <!-- Thinking Indicator -->
+        <div id="thinking-indicator" class="hidden flex items-center justify-start gap-2">
+          <div class="bg-gray-700 rounded-full p-2">
+            <div class="dot-container">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Welcome Message -->
+        <div class="flex justify-start">
+          <div
+            class="bg-gray-700 text-gray-100 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl p-3 max-w-[85%] text-sm shadow-sm">
+            Halo! 👋 Selamat datang di Dhylers Mobil. Saya siap membantu Anda mencari mobil Toyota, Daihatsu, atau merek
+            lainnya. Ada yang bisa saya bantu?
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="p-4 bg-gray-800 border-t border-purple-900/50">
+        <form id="chat-form" class="flex items-center gap-2">
+          <input type="text" id="chat-input" placeholder="Tanyakan apapun..."
+            class="flex-1 bg-gray-700 text-white placeholder-gray-400 border-none rounded-full px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none text-sm shadow-inner"
+            autocomplete="off">
+          <button type="submit"
+            class="w-12 h-12 bg-purple-600 hover:bg-purple-500 text-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-105 transition-all duration-200">
+            <i class="fas fa-paper-plane text-sm pl-1"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Slideshow and Chatbot -->
+  <script src="script.js"></script>
+</body>
+
+</html>
